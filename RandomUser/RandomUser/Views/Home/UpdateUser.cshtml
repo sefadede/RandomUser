@@ -1,0 +1,54 @@
+﻿@model User
+@{ Layout = "_Layout"; ViewBag.Title = "Update a User";}
+
+<h2>Update a User <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="name.first"></label>
+        <input class="form-control" asp-for="name.first" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="name.last"></label>
+        <input class="form-control" asp-for="name.last" />
+    </div>
+    <div class="form-group">
+        <label asp-for="email"></label>
+        <input class="form-control" asp-for="email" />
+    </div>
+    <div class="form-group">
+        <label asp-for="phone"></label>
+        <input class="form-control" asp-for="phone" />
+    </div>
+     <div class="form-group">
+        <label asp-for="gender"></label>
+        <input class="form-control" asp-for="gender" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Success")
+{
+    <h2>User</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.name.first</td>
+                <td>@Model.name.last</td>
+                <td>@Model.email</td>
+                <td>@Model.phone</td>
+                <td>@Model.gender</td>
+            </tr>
+        </tbody>
+    </table>
+}

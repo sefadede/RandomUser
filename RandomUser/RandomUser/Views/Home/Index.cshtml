@@ -1,0 +1,33 @@
+﻿@model IEnumerable<User>
+@{
+    Layout = "_Layout"; ViewBag.Title = "All Users";
+}
+
+<h2>All Users</h2>
+<a asp-action="AddUser" class="btn btn-sm btn-primary">Add User</a>
+<a asp-action="GetUser" class="btn btn-sm btn-secondary">Get User</a>
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.name.first</td>
+                <td>@r.name.last</td>
+                <td>@r.email</td>
+                <td>@r.phone</td>
+                <td>@r.gender</td>
+            </tr>
+        }
+    </tbody>
+</table>
